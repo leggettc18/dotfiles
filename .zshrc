@@ -61,7 +61,7 @@ peco_select_history() {
     fi
 
     BUFFER=$(fc -l -n 1 | eval $parse_cmd | \
-        peco ${=ZSH_PECO_HISTORY_OPTS} --query "$LBUFFER")
+        peco ${=ZSH_PECO_HISTORY_OPTS} --query "$LBUFFER" --layout=bottom-up)
     
     CURSER=$#BUFFER
     zle -R -c
