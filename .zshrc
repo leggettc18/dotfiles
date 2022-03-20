@@ -39,6 +39,26 @@ peco_change_directory() {
 }
 zle -N peco_change_directory
 
+function find_cd() {
+  local selected_dir=$(find . -type d 2>/dev/null | peco --layout=bottom-up)
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+}
+zle -N find_cd
+bindkey '^f' find_cd
+
+function peco-src () {
+  local selected_dir=$(ls -ad $HOME/Projects/* | peco --layout=bottom-up)
+  if [ -n "$selected_dir" ]; then
+    BUFFER="cd ${selected_dir}"
+    zle accept-line
+  fi
+}
+zle -N peco-src
+bindkey '^G' peco-src
+
 peco_select_history() {
     local parse_cmd
 
@@ -72,5 +92,4 @@ zle -N peco_select_history
 bindkey "^l" forward-char
 bindkey "^k" backward-char
 bindkey "^d" delete-char
-bindkey "^f" peco_change_directory
 bindkey "^r" peco_select_history
