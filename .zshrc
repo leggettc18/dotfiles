@@ -18,6 +18,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+export PATH=$PATH:$HOME/.local/bin
+
 export DOT_REPO="https://github.com/leggettc18/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
 fpath=($HOME/.zsh/dot $fpath)  # <- for completion
