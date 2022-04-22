@@ -1,2 +1,3 @@
 .zshrc,.zshrc
 .zsh/powerlevel10k,.zsh/powerlevel10k
+.ssh/config,.ssh/config

@@ -1,3 +1,11 @@
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+	RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+	if [ "$RUNNING_AGENT" = "0" ]; then
+		ssh-agent -s &> $HOME/.ssh/ssh-agent
+	fi
+	eval `cat $HOME/.ssh/ssh-agent`
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -95,3 +103,9 @@ bindkey "^l" forward-char
 bindkey "^k" backward-char
 bindkey "^d" delete-char
 bindkey "^r" peco_select_history
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
