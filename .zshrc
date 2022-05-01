@@ -33,7 +33,7 @@ compinit
 
 export PATH=$PATH:$HOME/.local/bin
 
-export DOT_REPO="https://github.com/leggettc18/dotfiles.git"
+export DOT_REPO="git@github.com:leggettc18/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
 fpath=($HOME/.zsh/dot $fpath)  # <- for completion
 source $HOME/.zsh/dot/dot.sh
