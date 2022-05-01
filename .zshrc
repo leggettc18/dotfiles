@@ -47,6 +47,14 @@ if type exa &> /dev/null; then
 	alias lla="ll -a"
 fi
 
+if type batcat &> /dev/null; then
+	alias cat="batcat"
+fi
+
+if type rg &> /dev/null; then
+	alias grep="rg"
+fi
+
 # Functions
 peco_change_directory() {
 	cd $(ls -d $HOME/Projects/* | peco --layout=bottom-up)
