@@ -55,6 +55,13 @@ if type rg &> /dev/null; then
 	alias grep="rg"
 fi
 
+if type dkp-pacman &> /dev/null; then
+	export DEVKITPRO=/opt/devkitpro
+	export DEVKITARM="${DEVKITPRO}/devkitARM"
+	export DEVKITPPC="${DEVKITPRO}/devkitPPC"
+	export PATH="${DEVKITPRO}/tools/bin:${PATH}"
+fi
+
 # Functions
 peco_change_directory() {
 	cd $(ls -d $HOME/Projects/* | peco --layout=bottom-up)
