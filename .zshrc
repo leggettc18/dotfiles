@@ -1,3 +1,5 @@
+export TERM="screen-256color"
+
 if [ -z "$SSH_AUTH_SOCK" ] ; then
 	RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
 	if [ "$RUNNING_AGENT" = "0" ]; then
@@ -9,6 +11,10 @@ fi
 if [[ -f "$HOME/.zsh/zsh-z/zsh-z.plugin.zsh" ]]; then
 	source "$HOME/.zsh/zsh-z/zsh-z.plugin.zsh"
 	zstyle ':completion:*' menu select
+fi
+
+if [[ -f "$HOME/.cargo/env" ]]; then
+    . "$HOME/.cargo/env"
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -36,6 +42,7 @@ export PATH=$PATH:$HOME/.local/bin
 export DOT_REPO="git@github.com:leggettc18/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
 fpath=($HOME/.zsh/dot $fpath)  # <- for completion
+fpath=($HOME/.zsh/completion $fpath)
 source $HOME/.zsh/dot/dot.sh
 source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
@@ -129,3 +136,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+source ${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source /home/chris/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

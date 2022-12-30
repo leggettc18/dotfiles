@@ -2,3 +2,5 @@
 .zsh/powerlevel10k,.zsh/powerlevel10k
 .ssh/config,.ssh/config
 .config/alacritty/alacritty.yml,.config/alacritty/alacritty.yml
+# neovim config
+.config/nvim,.config/nvim
