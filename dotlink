@@ -6,3 +6,5 @@
 .config/nvim,.config/nvim
 .tmux.conf,.tmux.conf
 .tmux,.tmux
+.zsh/zsh-syntax-highlighting,.zsh/zsh-syntax-highlighting
+.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh,.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
