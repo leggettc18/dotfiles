@@ -24,7 +24,6 @@ treesitter.setup({
         "lua",
         "vim",
         "dockerfile",
-        "gitignore",
         "rust",
         "c",
         "cpp",
