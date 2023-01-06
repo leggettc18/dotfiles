@@ -4,3 +4,5 @@
 .config/alacritty/alacritty.yml,.config/alacritty/alacritty.yml
 # neovim config
 .config/nvim,.config/nvim
+.tmux.conf,.tmux.conf
+.tmux,.tmux
