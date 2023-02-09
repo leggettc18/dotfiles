@@ -23,6 +23,7 @@ mason_lspconfig.setup({
         "tailwindcss",
         "sumneko_lua",
         "clangd",
+        "cmake"
     },
     automatic_installation = true,
 })
@@ -32,5 +33,8 @@ mason_null_ls.setup({
         "prettier",
         "stylua",
         "eslint_d",
+        "cpplint",
+        "clang_format",
+        "cmake_format",
     }
 })

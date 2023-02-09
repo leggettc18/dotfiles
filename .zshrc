@@ -58,9 +58,9 @@ if type batcat &> /dev/null; then
 	alias cat="batcat"
 fi
 
-if type rg &> /dev/null; then
-	alias grep="rg"
-fi
+#if type rg &> /dev/null; then
+#	alias grep="rg"
+#fi
 
 if type dkp-pacman &> /dev/null; then
 	export DEVKITPRO=/opt/devkitpro
