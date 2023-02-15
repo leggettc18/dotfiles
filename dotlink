@@ -7,3 +7,4 @@
 .tmux.conf,.tmux.conf
 .tmux,.tmux
 .zsh/zsh-syntax-highlighting,.zsh/zsh-syntax-highlighting
+.config/peco/config.json,.config/peco/config.json
