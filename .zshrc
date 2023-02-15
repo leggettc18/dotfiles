@@ -37,7 +37,7 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/homebrew/bin
 
 export DOT_REPO="git@github.com:leggettc18/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
@@ -133,9 +133,15 @@ bindkey "^r" peco_select_history
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-export NVM_DIR="$HOME/.nvm"
+if type brew --prefix nvm &> /dev/null then
+    export NVM_DIR="$(brew --prefix nvm)"
+else
+    export NVM_DIR="$HOME/.nvm"
+end
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source ${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-source /home/chris/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
