@@ -133,11 +133,12 @@ bindkey "^r" peco_select_history
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
-if type brew --prefix nvm &> /dev/null then
+if type brew --prefix nvm &> /dev/null; then
     export NVM_DIR="$(brew --prefix nvm)"
 else
     export NVM_DIR="$HOME/.nvm"
-end
+fi
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
