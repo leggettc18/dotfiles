@@ -1,12 +1,12 @@
 local ensure_packer = function()
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-vim.cmd [[packadd packer.nvim]]
-return true
-end
-return false
+    local fn = vim.fn
+    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+    if fn.empty(fn.glob(install_path)) > 0 then
+        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+        vim.cmd [[packadd packer.nvim]]
+        return true
+    end
+    return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -20,93 +20,103 @@ augroup end
 
 local status, packer = pcall(require, "packer")
 if not status then
-return
+    return
 end
 
 return packer.startup(function(use)
-use("wbthomason/packer.nvim")
+        use("wbthomason/packer.nvim")
 
--- lua functions that many plugins use
-use("nvim-lua/plenary.nvim")
+        -- lua functions that many plugins use
+        use("nvim-lua/plenary.nvim")
 
-use("bluz71/vim-nightfly-guicolors")
-use{ "catppuccin/nvim", as = "catppuccin" }
+        use("bluz71/vim-nightfly-guicolors")
+        use { "catppuccin/nvim", as = "catppuccin" }
 
--- tmux & split window navigation
-use("christoomey/vim-tmux-navigator")
+        -- tmux & split window navigation
+        use("christoomey/vim-tmux-navigator")
 
--- maximizes and restores current window
-use("szw/vim-maximizer")
+        -- maximizes and restores current window
+        use("szw/vim-maximizer")
 
--- essential plugins
-use("tpope/vim-surround")
-use("vim-scripts/ReplaceWithRegister")
+        -- essential plugins
+        use("tpope/vim-surround")
+        use("vim-scripts/ReplaceWithRegister")
 
--- commenting with gc
-use("numToStr/Comment.nvim")
+        -- commenting with gc
+        use("numToStr/Comment.nvim")
 
--- file explorer
-use("nvim-tree/nvim-tree.lua")
+        -- file explorer
+        vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1]])
 
--- icons
-use("kyazdani42/nvim-web-devicons")
+        use {
+            "nvim-neo-tree/neo-tree.nvim",
+            branch = "v2.x",
+            requires = {
+                "nvim-lua/plenary.nvim",
+                "nvim-tree/nvim-web-devicons",
+                "MunifTanjim/nui.nvim",
+            }
+        }
 
--- statusline
-use("nvim-lualine/lualine.nvim")
+        -- icons
+        use("kyazdani42/nvim-web-devicons")
 
--- fuzzy finding
-use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
+        -- statusline
+        use("nvim-lualine/lualine.nvim")
 
--- autocompletion
-use("hrsh7th/nvim-cmp")
-use("hrsh7th/cmp-buffer")
-use("hrsh7th/cmp-path")
+        -- fuzzy finding
+        use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+        use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" })
 
--- snippets
-use("L3MON4D3/LuaSnip")
-use("saadparwaiz1/cmp_luasnip")
-use("rafamadriz/friendly-snippets")
+        -- autocompletion
+        use("hrsh7th/nvim-cmp")
+        use("hrsh7th/cmp-buffer")
+        use("hrsh7th/cmp-path")
 
--- managing and installing lsp servers, linters, & formatters
-use("williamboman/mason.nvim")
-use("williamboman/mason-lspconfig.nvim")
+        -- snippets
+        use("L3MON4D3/LuaSnip")
+        use("saadparwaiz1/cmp_luasnip")
+        use("rafamadriz/friendly-snippets")
 
--- configuring the lsp servers
-use("neovim/nvim-lspconfig")
-use("hrsh7th/cmp-nvim-lsp")
-use({ "glepnir/lspsaga.nvim", branch = "main" })
-use("jose-elias-alvarez/typescript.nvim")
-use("onsails/lspkind.nvim")
-use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
-use("simrat39/rust-tools.nvim")
+        -- managing and installing lsp servers, linters, & formatters
+        use("williamboman/mason.nvim")
+        use("williamboman/mason-lspconfig.nvim")
 
--- formatting & linting
-use("jose-elias-alvarez/null-ls.nvim")
-use("jayp0521/mason-null-ls.nvim")
+        -- configuring the lsp servers
+        use("neovim/nvim-lspconfig")
+        use("hrsh7th/cmp-nvim-lsp")
+        use({ "glepnir/lspsaga.nvim", branch = "main" })
+        use("jose-elias-alvarez/typescript.nvim")
+        use("onsails/lspkind.nvim")
+        use({ "https://git.sr.ht/~whynothugo/lsp_lines.nvim" })
+        use("simrat39/rust-tools.nvim")
 
--- treesitter
-use({
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-        require("nvim-treesitter.install").update({ with_sync = true })
-    end,
-})
+        -- formatting & linting
+        use("jose-elias-alvarez/null-ls.nvim")
+        use("jayp0521/mason-null-ls.nvim")
 
--- auto closing
-use("windwp/nvim-autopairs")
-use({ "windwp/nvim-ts-autotag", after="nvim-treesitter" })
+        -- treesitter
+        use({
+            "nvim-treesitter/nvim-treesitter",
+            run = function()
+                require("nvim-treesitter.install").update({ with_sync = true })
+            end,
+        })
 
--- git signs plugin
-use("lewis6991/gitsigns.nvim")
+        -- auto closing
+        use("windwp/nvim-autopairs")
+        use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" })
 
-    if packer_bootstrap then
-        require("packer").sync()
-    end
+        -- git signs plugin
+        use("lewis6991/gitsigns.nvim")
 
--- debug
-use("mfussenegger/nvim-dap")
+        if packer_bootstrap then
+            require("packer").sync()
+        end
 
--- cmake
-use("Shatur/neovim-tasks")
-end)
+        -- debug
+        use("mfussenegger/nvim-dap")
+
+        -- cmake
+        use("Shatur/neovim-tasks")
+    end)

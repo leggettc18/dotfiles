@@ -71,7 +71,7 @@ fi
 
 # Functions
 peco_change_directory() {
-	cd $(ls -d $HOME/Projects/* | peco --layout=bottom-up)
+	cd $(ls -d $HOME/source/repos/* | peco --layout=bottom-up)
     zle accept-line
 }
 zle -N peco_change_directory
@@ -87,7 +87,7 @@ zle -N find_cd
 bindkey '^f' find_cd
 
 function peco-src () {
-  local selected_dir=$(ls -ad $HOME/Projects/* | peco --layout=bottom-up)
+  local selected_dir=$(ls -ad $HOME/source/repos/* | peco --layout=bottom-up)
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line

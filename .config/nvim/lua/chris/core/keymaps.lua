@@ -22,8 +22,10 @@ keymap.set("n", "<leader>tp", "tabp<CR>") -- go to previous tab
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>")
+-- neo-tree
+keymap.set("n", "<leader>e", ":Neotree toggle filesystem<CR>")
+keymap.set("n", "<leader>b", ":Neotree toggle buffers<CR>")
+keymap.set("n", "<leader>g", ":Neotree toggle git_status<CR>")
 
 -- telescope
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
