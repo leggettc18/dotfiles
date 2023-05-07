@@ -44,10 +44,10 @@ export DOT_DIR="$HOME/.dotfiles"
 fpath=($HOME/.zsh/dot $fpath)  # <- for completion
 fpath=($HOME/.zsh/completion $fpath)
 source $HOME/.zsh/dot/dot.sh
-source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 if type exa &> /dev/null; then
 	alias ll="exa -l -g --icons"
@@ -146,4 +146,5 @@ source ${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+eval "$(starship init zsh)"
 

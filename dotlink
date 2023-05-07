@@ -8,3 +8,4 @@
 .tmux,.tmux
 .zsh/zsh-syntax-highlighting,.zsh/zsh-syntax-highlighting
 .config/peco/config.json,.config/peco/config.json
+.config/starship.toml,.config/starship.toml
