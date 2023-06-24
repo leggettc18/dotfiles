@@ -13,7 +13,11 @@ if not mason_null_ls_status then
     return
 end
 
-mason.setup()
+mason.setup({
+    pip = {
+        upgrade_pip = true,
+    }
+})
 
 mason_lspconfig.setup({
     ensure_installed = {
@@ -23,7 +27,8 @@ mason_lspconfig.setup({
         "tailwindcss",
         "lua_ls",
         "clangd",
-        "cmake"
+        "cmake",
+        "eslint"
     },
     automatic_installation = true,
 })
