@@ -80,10 +80,10 @@ typescript.setup({
     },
 })
 
-lspconfig["cssls"].setup({
-    capabilities = capabilities,
-    on_attach = on_attach,
-})
+--lspconfig["cssls"].setup({
+--    capabilities = capabilities,
+--    on_attach = on_attach,
+--})
 
 lspconfig["tailwindcss"].setup({
     capabilities = capabilities,
@@ -148,4 +148,9 @@ lspconfig["lua_ls"].setup({
             },
         },
     },
+})
+
+lspconfig["tailwindcss"].setup({
+    capabilities = capabilities,
+    on_attach = on_attach,
 })

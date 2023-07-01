@@ -8,7 +8,7 @@ treesitter.setup({
         enable = true
     },
     indent = { enable = true },
-    autotag = { enable= true },
+    autotag = { enable = true },
     ensure_installed = {
         "json",
         "javascript",
@@ -18,6 +18,7 @@ treesitter.setup({
         "html",
         "css",
         "markdown",
+        "markdown_inline",
         "svelte",
         "graphql",
         "bash",
