@@ -8,9 +8,26 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 	eval `cat $HOME/.ssh/ssh-agent`
 fi
 
-if [[ -f "$HOME/.zsh/zsh-z/zsh-z.plugin.zsh" ]]; then
-	source "$HOME/.zsh/zsh-z/zsh-z.plugin.zsh"
-	zstyle ':completion:*' menu select
+source ${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+if type nvim &> /dev/null; then
+    EDITOR=nvim
+fi
+
+if [[ -f "$HOME/.zplug/init.zsh" ]]; then
+    source "$HOME/.zplug/init.zsh"
+
+    zplug "agkozak/zsh-z"
+
+    zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+    if ! zplug check --verbose; then
+        printf "Install? [y/N]: "
+        if read -q; then
+            echo; zplug install
+        fi
+    fi
+    zplug load
 fi
 
 if [[ -f "$HOME/.cargo/env" ]]; then
@@ -35,9 +52,15 @@ zstyle :compinstall filename '/home/chris/.zshrc'
 
 autoload -Uz compinit
 compinit
+
+zstyle ':completion:*' menu select
 # End of lines added by compinstall
 
 export PATH=$PATH:$HOME/.local/bin:$HOME/homebrew/bin
+
+if type bob &> /dev/null; then
+	PATH=$PATH:$HOME/.local/share/bob/nvim-bin
+fi
 
 export DOT_REPO="git@github.com:leggettc18/dotfiles.git"
 export DOT_DIR="$HOME/.dotfiles"
@@ -56,6 +79,15 @@ fi
 
 if type batcat &> /dev/null; then
 	alias cat="batcat"
+fi
+
+if type bat &> /dev/null; then
+    alias cat="bat"
+    MANPAGER="sh -c 'col -bx | bat -l man -p'"
+fi
+
+if type sccache &> /dev/null; then
+    RUSTC_WRAPPER=sccache
 fi
 
 #if type rg &> /dev/null; then
@@ -142,8 +174,6 @@ fi
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source ${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-source ${HOME}/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 eval "$(starship init zsh)"

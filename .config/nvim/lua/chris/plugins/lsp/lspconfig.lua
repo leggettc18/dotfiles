@@ -20,7 +20,7 @@ end
 
 local keymap = vim.keymap
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+local augroup = vim.api.nvim_create_augroup("LspFormatting", { clear = true })
 
 -- enable keybinds for available lsp server
 local on_attach = function(client, bufnr)
@@ -48,16 +48,13 @@ local on_attach = function(client, bufnr)
         keymap.set("n", "<leader>ru", ":TypescriptRemoveUnused<CR>")    -- remove unused variables (not in youtube nvim video)
     end
     -- auto-format on write for rust_analyzer
-    if client.supports_method("textDocument/formatting") then
+    if client.server_capabilities.documentFormattingProvider then
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd("BufWritePre", {
             group = augroup,
             buffer = bufnr,
             callback = function()
                 vim.lsp.buf.format({
-                    --filter = function(current_client)
-                    --    return current_client.name == "null-ls" or current_client.name == "rust_analyzer"
-                    --end,
                     bufnr = bufnr,
                 })
             end,
@@ -79,11 +76,6 @@ typescript.setup({
         on_attach = on_attach,
     },
 })
-
---lspconfig["cssls"].setup({
---    capabilities = capabilities,
---    on_attach = on_attach,
---})
 
 lspconfig["tailwindcss"].setup({
     capabilities = capabilities,
@@ -154,3 +146,13 @@ lspconfig["tailwindcss"].setup({
     capabilities = capabilities,
     on_attach = on_attach,
 })
+
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]]
+
+-- Diagnostic symbols in the sign column
+local signs = { Error = "", Warn = "", Hint = "󱩏", Info = "" }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
