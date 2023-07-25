@@ -14,6 +14,9 @@ null_ls.setup({
         diagnostics.eslint_d,
         formatting.clang_format,
         diagnostics.cpplint,
-        formatting.cmake_format
+        formatting.cmake_format,
+        formatting.uncrustify.with({
+            filetypes = { "c", "cpp", "cs", "java", "vala" }
+        }),
     },
 })
