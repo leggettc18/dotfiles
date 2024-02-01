@@ -1,31 +1,36 @@
-local status, indentblankline = pcall(require, "indent_blankline")
+local status, indentblankline = pcall(require, "ibl")
 if not status then
-    return
+	return
 end
 
 vim.opt.list = true
 vim.opt.termguicolors = true
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#89b4fa gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guifg=#f38ba8 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent3 guifg=#a6e3a1 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent4 guifg=#f9e2af gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent5 guifg=#cba9f7 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent6 guifg=#eba0ac gui=nocombine]]
 
-indentblankline.setup {
-    enabled = true,
-    use_treesitter = true,
-    show_current_context = true,
-    show_current_context_start = true,
-    show_first_indent_level = true,
-    space_char_blankline = " ",
-    char_highlight = "LineNr",
-    context_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
+local highlight = {
+	"RainbowRed",
+	"RainbowYellow",
+	"RainbowBlue",
+	"RainbowOrange",
+	"RainbowGreen",
+	"RainbowViolet",
+	"RainbowCyan",
 }
+
+local hooks_status, hooks = pcall(require, "ibl.hooks")
+if not hooks_status then
+	return
+end
+
+hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+	vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#89b4fa" })
+	vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#f38ba8" })
+	vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#a6e3a1" })
+	vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#f9e2af" })
+	vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#cba9f7" })
+	vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#fab387" })
+	vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#89dceb" })
+end)
+
+indentblankline.setup({
+	indent = { highlight = highlight },
+})
