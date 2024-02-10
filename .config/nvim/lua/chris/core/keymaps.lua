@@ -25,14 +25,3 @@ keymap.set("n", "<leader>p", "*p")             -- put from clipboard
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>")
 
--- neo-tree
-keymap.set("n", "<leader>e", ":Neotree toggle filesystem<CR>")
-keymap.set("n", "<leader>b", ":Neotree toggle buffers<CR>")
-keymap.set("n", "<leader>G", ":Neotree toggle git_status<CR>")
-
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>")
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>")
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>")
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")

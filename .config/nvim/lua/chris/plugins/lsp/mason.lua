@@ -1,46 +1,56 @@
-local mason_status, mason = pcall(require, "mason")
-if not mason_status then
-	return
-end
-
-local mason_lspconfig_status, mason_lspconfig = pcall(require, "mason-lspconfig")
-if not mason_lspconfig_status then
-	return
-end
-
-local mason_null_ls_status, mason_null_ls = pcall(require, "mason-null-ls")
-if not mason_null_ls_status then
-	return
-end
-
-mason.setup({
-	pip = {
-		upgrade_pip = true,
+return {
+	"williamboman/mason.nvim",
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
-})
+	config = function()
+		-- import mason
+		local mason = require("mason")
 
-mason_lspconfig.setup({
-	ensure_installed = {
-		"tsserver",
-		"html",
-		"cssls",
-		"tailwindcss",
-		"lua_ls",
-		"clangd",
-		"cmake",
-		"eslint",
-	},
-	automatic_installation = true,
-})
+		-- import mason-lspconfig
+		local mason_lspconfig = require("mason-lspconfig")
+		local mason_tool_installer = require("mason-tool-installer")
 
-mason_null_ls.setup({
-	ensure_installed = {
-		"prettier",
-		"stylua",
-		"eslint_d",
-		"cpplint",
-		"clang_format",
-		"cmake_format",
-	},
-	automatic_installation = true,
-})
+		-- enable mason and configure icons
+		mason.setup({
+			ui = {
+				icons = {
+					package_installed = "",
+					package_pending = "",
+					packange_uninstalled = "",
+				},
+			},
+		})
+
+		mason_lspconfig.setup({
+			-- list of servers for mason to install
+			ensure_installed = {
+				"tsserver",
+				"html",
+				"cssls",
+				"tailwindcss",
+				"lua_ls",
+				"clangd",
+				"cmake",
+				"eslint",
+				"emmet_ls",
+				"prismals",
+				"rust_analyzer",
+			},
+			automatic_installation = true,
+		})
+
+		--        mason_tool_installer.setup({
+		--            ensure_installed = {
+		--                "prettier",
+		--                "stylua",
+		--                "eslint_d",
+		--                "cpplint",
+		--                "clang_format",
+		--                "cmake_format",
+		--            },
+		--            automatic_installation = true,
+		--        })
+	end,
+}
