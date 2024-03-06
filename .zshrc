@@ -14,12 +14,22 @@ if type nvim &> /dev/null; then
     EDITOR=nvim
 fi
 
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/chris/.zshrc'
+
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+# End of lines added by compinstall
+
 if [[ -f "$HOME/.zplug/init.zsh" ]]; then
     source "$HOME/.zplug/init.zsh"
 
     zplug "agkozak/zsh-z"
 
     zplug "zsh-users/zsh-syntax-highlighting", defer:2
+    zplug "kiurchv/asdf.plugin.zsh", defer:2
 
     if ! zplug check --verbose; then
         printf "Install? [y/N]: "
@@ -28,6 +38,10 @@ if [[ -f "$HOME/.zplug/init.zsh" ]]; then
         fi
     fi
     zplug load
+fi
+
+if [[ -f "$HOME/.asdf/plugins/golang/set-env.zsh" ]]; then
+    . $HOME/.asdf/plugins/golang/set-env.zsh
 fi
 
 if [[ -f "$HOME/.cargo/env" ]]; then
@@ -47,14 +61,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 bindkey -v
 # End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/chris/.zshrc'
-
-autoload -Uz compinit
-compinit
-
-zstyle ':completion:*' menu select
-# End of lines added by compinstall
 
 export PATH=$PATH:$HOME/.local/bin:$HOME/homebrew/bin
 
