@@ -37,6 +37,8 @@ return {
 				"emmet_ls",
 				"prismals",
 				"rust_analyzer",
+				"gopls",
+				"templ",
 			},
 			automatic_installation = true,
 		})

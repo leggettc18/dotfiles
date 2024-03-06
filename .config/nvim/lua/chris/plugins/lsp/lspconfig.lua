@@ -84,10 +84,18 @@ return {
 		lspconfig["html"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "html", "templ" },
+		})
+		lspconfig["htmx"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			filetypes = { "html", "templ" },
 		})
 		lspconfig["tailwindcss"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+			init_options = { userLanguages = { templ = "html" } },
 		})
 		lspconfig["clangd"].setup({
 			capabilities = capabilities,
@@ -110,6 +118,14 @@ return {
 			on_attach = on_attach,
 		})
 		lspconfig["rust_analyzer"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		lspconfig["gopls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		lspconfig["templ"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
