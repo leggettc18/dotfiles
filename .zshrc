@@ -196,3 +196,6 @@ esac
 
 export XDG_CONFIG_HOME="$HOME/.config/"
 export XDG_DATA_HOME="$HOME/.local/share"
+
+# Turso
+export PATH="/home/chris/.turso:$PATH"
