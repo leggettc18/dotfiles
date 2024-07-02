@@ -44,6 +44,10 @@ if [[ -f "$HOME/.asdf/plugins/golang/set-env.zsh" ]]; then
     . $HOME/.asdf/plugins/golang/set-env.zsh
 fi
 
+if [[ -f "$HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh" ]] then
+    . $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
+fi
+
 if [[ -f "$HOME/.cargo/env" ]]; then
     . "$HOME/.cargo/env"
 fi
@@ -199,3 +203,4 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # Turso
 export PATH="/home/chris/.turso:$PATH"
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"

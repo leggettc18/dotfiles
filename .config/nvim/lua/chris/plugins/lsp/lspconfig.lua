@@ -129,5 +129,19 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+		lspconfig["gleam"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+		lspconfig["omnisharp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = {
+				"/home/chris/.local/share/nvim/mason/bin/omnisharp",
+				"--languageserver",
+				"--hostPID",
+				tostring(vim.fn.getpid()),
+			},
+		})
 	end,
 }
