@@ -204,3 +204,8 @@ export XDG_DATA_HOME="$HOME/.local/share"
 # Turso
 export PATH="/home/chris/.turso:$PATH"
 source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
+
+# Work convenience functions
+function upload_wicket () {
+    rsync -avr -e 'ssh -l pi' --exclude=".git*" --exclude=".vscode*" ~/source/work/repos/NetCutter $1:/home/pi/Development/
+}

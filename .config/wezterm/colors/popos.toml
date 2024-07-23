@@ -1,0 +1,37 @@
+[colors]
+ansi = [
+    "#333333",
+    "#CC0000",
+    "#4E9A06",
+    "#C4A000",
+    "#3465A4",
+    "#75507B",
+    "#06989A",
+    "#D3D7CF"
+]
+background = "#333333"
+brights = [
+    "#88807C",
+    "#F15D22",
+    "#73C48F",
+    "#FFCE51",
+    "#48B9C7",
+    "#AD7FA8",
+    "#34E2E2",
+    "#EEEEEC"
+]
+cursor_bg = "#F6F6F6"
+cursor_border = "#49B9C7"
+cursor_fg = "#49B9C7"
+foreground = "#F2F2F2"
+selection_bg = "#48B9C7"
+selection_fg = "#FFFFFF"
+
+[colors.indexed]
+
+[metadata]
+aliases = []
+author = "Christopher Leggett"
+name = "popos"
+origin_url = ""
+wezterm-version = "20240203-110809-5046fc22"
