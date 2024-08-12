@@ -207,5 +207,5 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 # Work convenience functions
 function upload_wicket () {
-    rsync -avr -e 'ssh -l pi' --exclude=".git*" --exclude=".vscode*" ~/source/work/repos/NetCutter $1:/home/pi/Development/
+    rsync -avr -e "ssh -l $1" --exclude=".git*" --exclude=".vscode*" ~/source/work/repos/NetCutter $2:/home/$1/Development/
 }

@@ -1,9 +1,13 @@
 local wezterm = require("wezterm")
 local config = {}
+if wezterm.config_builder then
+	config = wezterm.config_builder()
+end
 
 config.enable_tab_bar = false
-config.font = wezterm.font("Iosevka Nerd Font")
-config.color_scheme = "Catppuccin Mocha"
+config.font = wezterm.font("JetBrainsMono Nerd Font")
+config.font_size = 12.0
+config.color_scheme = "Papercolor Dark (Gogh)"
 config.window_padding = {
 	left = 3,
 	right = 3,
