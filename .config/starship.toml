@@ -1,97 +1,186 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-palette = "catppucin_mocha"
+# format = """
+# $username\
+# $hostname\
+# $shlvl\
+# $singularity\
+# $kubernetes\
+# $directory\
+# $vcsh\
+# $git_branch\
+# $git_commit\
+# $git_metrics\
+# $hg_branch\
+# $docker_context\
+# $package\
+# $cmake\
+# $cobol\
+# $dart\
+# $deno\
+# $dotnet\
+# $elixir\
+# $elm\
+# $erlang\
+# $golang\
+# $helm\
+# $java\
+# $julia\
+# $kotlin\
+# $lua\
+# $nim\
+# $nodejs\
+# $ocaml\
+# $perl\
+# $php\
+# $purescript\
+# $python\
+# $rlang\
+# $red\
+# $ruby\
+# $rust\
+# $scala\
+# $swift\
+# $terraform\
+# $vlang\
+# $vagrant\
+# $zig\
+# $nix_shell\
+# $conda\
+# $memory_usage\
+# $aws\
+# $gcloud\
+# $openstack\
+# $env_var\
+# $crystal\
+# $custom\
+# $cmd_duration\
+# $jobs\
+# $battery\
+# $time\
+# $status\
+# $shell\
+# $character\
+# """
 
 format = """
-$username\
-$hostname\
-$shlvl\
-$singularity\
-$kubernetes\
-$directory\
-$vcsh\
-$git_branch\
-$git_commit\
-$git_metrics\
-$hg_branch\
-$docker_context\
-$package\
-$cmake\
-$cobol\
-$dart\
-$deno\
-$dotnet\
-$elixir\
-$elm\
-$erlang\
-$golang\
-$helm\
-$java\
-$julia\
-$kotlin\
-$lua\
-$nim\
-$nodejs\
-$ocaml\
-$perl\
-$php\
-$purescript\
-$python\
-$rlang\
-$red\
-$ruby\
-$rust\
-$scala\
-$swift\
-$terraform\
-$vlang\
-$vagrant\
-$zig\
-$nix_shell\
-$conda\
-$memory_usage\
-$aws\
-$gcloud\
-$openstack\
-$env_var\
-$crystal\
-$custom\
-$cmd_duration\
-$jobs\
-$battery\
-$time\
-$status\
-$shell\
-$character\
-"""
+[\uE0B6](fg:#af87d7)[$directory](bg:#af87d7)[\uE0B0](fg:#af87d7 bg:#5faf5f)$git_branch[\uE0B0](fg:#5faf5f bg:#afd700)$git_status[\uE0B0](#afd700 bg:#5f8787)$time[\uE0B0](fg:#5f8787 bg:#d7875f)$bun$c$cmake$dotnet$elixer$erlang$gleam$golang$java$julia$kotlin$lua$nim$nodejs$ocaml$odin$perl$php$python$r$ruby$rust$scala$swift$zig[\uE0B0](fg:#d7875f bg:#1c1c1c)
+$character """
+
+add_newline = true
+
+[directory]
+style = "bg:#af87d7 fg:#1c1c1c"
+
+[git_branch]
+format = "[ $symbol$branch ]($style)"
+style = "bg:#5faf5f fg:#1c1c1c"
+
+[git_status]
+format = "[ $all_status$ahead_behind ]($style)"
+style = "bg:#afd700 fg:#1c1c1c"
+
+[time]
+disabled = false
+format = "[ $time ]($style)"
+style = "bg:#5f8787 fg:#1c1c1c"
+
+[bun]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[c]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[cmake]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[dotnet]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[erlang]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[gleam]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[golang]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[java]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[julia]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[kotlin]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[lua]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[nim]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[nodejs]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[ocaml]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[odin]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[perl]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[php]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[python]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[r]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[ruby]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[rust]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[scala]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[swift]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
+
+[zig]
+format = "[ via $symbol($version) ]($style)"
+style = "bg:#d7875f fg:#1c1c1c"
 
 [character]
 success_symbol = '[➜ ](bold green)'
 
-[palettes.catppucin_mocha]
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "b4befe"
-text = "#cdd6f4"
-subtext1 = "#bac3de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
