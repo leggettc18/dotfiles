@@ -64,7 +64,7 @@
 # """
 
 format = """
-[\uE0B6](fg:#af87d7)[$directory](bg:#af87d7)[\uE0B0](fg:#af87d7 bg:#5faf5f)$git_branch[\uE0B0](fg:#5faf5f bg:#afd700)$git_status[\uE0B0](#afd700 bg:#5f8787)$time[\uE0B0](fg:#5f8787 bg:#d7875f)$bun$c$cmake$dotnet$elixer$erlang$gleam$golang$java$julia$kotlin$lua$nim$nodejs$ocaml$odin$perl$php$python$r$ruby$rust$scala$swift$zig[\uE0B0](fg:#d7875f bg:#1c1c1c)
+[\uE0B6](fg:#af87d7)[$directory](bg:#af87d7)[\uE0B0](fg:#af87d7 bg:#5faf5f)$git_branch[\uE0B0](fg:#5faf5f bg:#afd700)$git_status[\uE0B0](#afd700 bg:#5f8787)$time[\uE0B0](fg:#5f8787 bg:#d7875f)$bun$c$cmake$dotnet$elixer$erlang$gleam$golang$java$julia$kotlin$lua$nim$nodejs$ocaml$odin$perl$php$python$rlang$ruby$rust$scala$swift$zig[\uE0B0](fg:#d7875f bg:#1c1c1c)
 $character """
 
 add_newline = true
@@ -157,7 +157,7 @@ style = "bg:#d7875f fg:#1c1c1c"
 format = "[ via $symbol($version) ]($style)"
 style = "bg:#d7875f fg:#1c1c1c"
 
-[r]
+[rlang]
 format = "[ via $symbol($version) ]($style)"
 style = "bg:#d7875f fg:#1c1c1c"
 
