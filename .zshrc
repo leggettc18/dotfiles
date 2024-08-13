@@ -19,12 +19,22 @@ zstyle :compinstall filename '/home/chris/.zshrc'
 
 autoload -Uz compinit
 compinit
+autoload -U +X bashcompinit && bashcompinit
 
 zstyle ':completion:*' menu select
 # End of lines added by compinstall
 
-if [[ -f "$HOME/.zplug/init.zsh" ]]; then
-    source "$HOME/.zplug/init.zsh"
+if [[ -d "$HOME/.zplug" ]]; then
+    export ZPLUG_HOME="$HOME/.zplug"
+fi
+
+if [[ -d "/usr/local/opt/zplug" ]]; then
+    export ZPLUG_HOME="/usr/local/opt/zplug"
+fi
+
+if [[ -f "$ZPLUG_HOME/init.zsh" ]]; then
+
+    source "$ZPLUG_HOME/init.zsh"
 
     zplug "agkozak/zsh-z"
 
@@ -52,13 +62,6 @@ if [[ -f "$HOME/.cargo/env" ]]; then
     . "$HOME/.cargo/env"
 fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=1000
@@ -72,18 +75,8 @@ if type bob &> /dev/null; then
 	PATH=$PATH:$HOME/.local/share/bob/nvim-bin
 fi
 
-export DOT_REPO="git@github.com:leggettc18/dotfiles.git"
-export DOT_DIR="$HOME/.dotfiles"
-fpath=($HOME/.zsh/dot $fpath)  # <- for completion
-fpath=($HOME/.zsh/completion $fpath)
-source $HOME/.zsh/dot/dot.sh
-# source ~/.zsh/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-if type exa &> /dev/null; then
-	alias ll="exa -l -g --icons"
+if type eza &> /dev/null; then
+	alias ll="eza -l -g --icons"
 	alias lla="ll -a"
 fi
 
@@ -203,9 +196,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # Turso
 export PATH="/home/chris/.turso:$PATH"
-source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
 
 # Work convenience functions
 function upload_wicket () {
     rsync -avr -e "ssh -l $1" --exclude=".git*" --exclude=".vscode*" ~/source/work/repos/NetCutter $2:/home/$1/Development/
 }
+source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"
