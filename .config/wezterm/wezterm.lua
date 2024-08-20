@@ -7,7 +7,7 @@ end
 config.enable_tab_bar = false
 config.font = wezterm.font("JetBrainsMono Nerd Font")
 config.font_size = 12.0
-config.color_scheme = "Papercolor Dark (Gogh)"
+config.color_scheme = "Gruvbox Dark (Gogh)"
 config.window_padding = {
 	left = 3,
 	right = 3,
