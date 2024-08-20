@@ -64,7 +64,7 @@
 # """
 
 format = """
-$os[\uE0B0](fg:#458588 bg:#b16286)[ $directory](bg:#b16286)[\uE0B0](fg:#b16286 bg:#689d6a)$git_branch[\uE0B0](fg:#689d6a bg:#98971a)$git_status[\uE0B0](#98971a bg:#458588)$time[\uE0B0](fg:#458588 bg:#d79921)$bun$c$cmake$dotnet$elixer$erlang$gleam$golang$java$julia$kotlin$lua$nim$nodejs$ocaml$odin$perl$php$python$rlang$ruby$rust$scala$swift$zig[\uE0B0](fg:#d79921 bg:#2828)
+$os[\uE0B0](fg:#458588 bg:#b16286)[ $directory](bg:#b16286)[\uE0B0](fg:#b16286 bg:#689d6a)$git_branch[\uE0B0](fg:#689d6a bg:#98971a)$git_status[\uE0B0](#98971a bg:#458588)$time[\uE0B0](fg:#458588 bg:#d65d0e)$bun$c$cmake$dotnet$elixer$erlang$gleam$golang$java$julia$kotlin$lua$nim$nodejs$ocaml$odin$perl$php$python$rlang$ruby$rust$scala$swift$zig[\uE0B0](fg:#d65d0e bg:#2828)
 $character """
 
 add_newline = true
@@ -95,99 +95,99 @@ style = "bg:#458588 fg:#282828"
 
 [bun]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#282828"
+style = "bg:#d65d0e fg:#282828"
 
 [c]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [cmake]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [dotnet]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [erlang]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [gleam]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [golang]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [java]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [julia]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [kotlin]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [lua]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [nim]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [nodejs]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [ocaml]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [odin]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [perl]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [php]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [python]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [rlang]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [ruby]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [rust]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [scala]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [swift]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [zig]
 format = "[ via $symbol($version) ]($style)"
-style = "bg:#d79921 fg:#1c1c1c"
+style = "bg:#d65d0e fg:#1c1c1c"
 
 [character]
 success_symbol = '[➜ ](bold green)'
