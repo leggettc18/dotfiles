@@ -75,20 +75,19 @@ return {
 			-- configure format on save
 			on_attach = function(current_client, bufnr)
 				if current_client.supports_method("textDocument/formatting") then
-					vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						group = augroup,
-						buffer = bufnr,
-						callback = function()
-							vim.lsp.buf.format({
-								filter = function(client)
-									-- only use null-ls for formatting instead of lsp server
-									return client.name == "null-ls"
-								end,
-								bufnr = bufnr,
-							})
-						end,
-					})
+					local keymap = vim.keymap
+					local opts = { noremap = true, silent = true }
+					opts.buffer = bufnr
+					opts.desc = "Format current buffer"
+					local callback = function()
+						vim.lsp.buf.format({
+							filter = function(client)
+								return client.name == "null-ls"
+							end,
+							bufnr = bufnr,
+						})
+					end
+					keymap.set("n", "<leader>F", callback, opts) -- format file
 				end
 			end,
 		})

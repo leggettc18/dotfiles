@@ -104,67 +104,10 @@ if type dkp-pacman &> /dev/null; then
 	export PATH="${DEVKITPRO}/tools/bin:${PATH}"
 fi
 
-# Functions
-peco_change_directory() {
-	cd $(ls -d $HOME/source/repos/* | peco --layout=bottom-up)
-    zle accept-line
-}
-zle -N peco_change_directory
-
-function find_cd() {
-  local selected_dir=$(find . -type d 2>/dev/null | peco --layout=bottom-up)
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-}
-zle -N find_cd
-bindkey '^f' find_cd
-
-function peco-src () {
-  local selected_dir=$(ls -ad $HOME/source/repos/* | peco --layout=bottom-up)
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-}
-zle -N peco-src
-bindkey '^G' peco-src
-
-peco_select_history() {
-    local parse_cmd
-
-    if (( $+commands[gtac] )); then
-        parse_cmd="gtac"
-    elif (( $+commands[tac] )); then
-        parse_cmd="tac"
-    else
-        parse_cmd="tail -r"
-    fi
-
-    if [ -n "$ZSH_PECO_HISTORY_DEDUP" ]; then
-        if (( $+commands[perl] )); then
-            parse_cmd="$parse_cmd | perl -ne 'print unless \$seen{\$_}++'"
-        elif (( $+commands[awk] )); then
-            parse_cmd="$parse_cmd | awk '!seen[\$0]++'"
-        else
-            parse_cmd="$parse_cmd | uniq"
-        fi
-    fi
-
-    BUFFER=$(fc -l -n 1 | eval $parse_cmd | \
-        peco ${=ZSH_PECO_HISTORY_OPTS} --query "$LBUFFER" --layout=bottom-up)
-    
-    CURSER=$#BUFFER
-    zle -R -c
-}
-zle -N peco_select_history
-
 # Set keybindings
 bindkey "^l" forward-char
 bindkey "^k" backward-char
 bindkey "^d" delete-char
-bindkey "^r" peco_select_history
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
@@ -196,6 +139,9 @@ export XDG_DATA_HOME="$HOME/.local/share"
 
 # Turso
 export PATH="/home/chris/.turso:$PATH"
+
+# fzf
+source <(fzf --zsh)
 
 # Work convenience functions
 function upload_wicket () {
