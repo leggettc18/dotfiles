@@ -8,8 +8,6 @@ if [ -z "$SSH_AUTH_SOCK" ] ; then
 	eval `cat $HOME/.ssh/ssh-agent`
 fi
 
-source ${HOME}/.zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
-
 if type nvim &> /dev/null; then
     EDITOR=nvim
 fi
