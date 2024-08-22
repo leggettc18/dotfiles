@@ -5,7 +5,11 @@ return {
         theme = "gruvbox_dark",
         sections = {
             lualine_c = {
-                { require('gitblame').get_current_blame_text, cond = require('gitblame').is_blame_text_available }
+                {
+                    require('gitblame').get_current_blame_text,
+                    cond = require('gitblame').is_blame_text_available,
+                    icon = ''
+                }
             }
         }
     }
