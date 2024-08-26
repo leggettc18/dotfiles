@@ -23,6 +23,7 @@ return {
 				},
 			})
 			require("telescope").load_extension("fzf")
+            telescope.load_extension("remote-sshfs")
 
 			vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
 			vim.keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
